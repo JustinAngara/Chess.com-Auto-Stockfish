@@ -43,6 +43,15 @@ public class MouseMoverHelper implements NativeKeyListener {
             e.printStackTrace();
           }
         }
+        if(arg0.getKeyCode()==NativeKeyEvent.VC_F) {
+          // run thread
+//          Main.executor.execute(new RunThread());
+        } 
+        if(arg0.getKeyCode()==NativeKeyEvent.VC_V) {
+          // run thread
+          System.out.println("shit");
+//          RunThread.isOn = !RunThread.isOn;
+        } 
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.chepuz.main;
 import java.awt.AWTException;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
+import javax.swing.Timer;
 import com.github.kwhat.jnativehook.GlobalScreen;
 import com.github.kwhat.jnativehook.NativeHookException;
 import com.github.kwhat.jnativehook.keyboard.NativeKeyEvent;
@@ -11,6 +12,8 @@ import java.awt.event.ActionListener;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
@@ -18,11 +21,12 @@ import java.awt.event.ActionEvent;
 
 
 public class Main implements NativeKeyListener {
-  
+  static Timer t; 
   static PieceOverlay po = new PieceOverlay();
   private JFrame frame;
   public static Overlay o;
   public static boolean isWhite = true;
+//  public static ThreadPoolExecutor executor;
   /**
    * Launch the application.
    * @throws AWTException 
@@ -36,7 +40,9 @@ public class Main implements NativeKeyListener {
   
   
   public static void main(String[] args) throws MalformedURLException, IOException {
+    
     po.main(null);
+//    executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(4);
     EventQueue.invokeLater(new Runnable() {
       public void run() {
         try {
@@ -58,7 +64,14 @@ public class Main implements NativeKeyListener {
     //create overlay object
     o = new Overlay();
     MouseMoverHelper.main(null);
-    
+    t = new Timer(250,(ActionEvent e)->{
+      try {
+        Main.goMove();
+      } catch (AWTException e1) {
+        // TODO Auto-generated catch block
+        e1.printStackTrace();
+      }
+    });
     initialize();
   }
 
@@ -102,7 +115,7 @@ public class Main implements NativeKeyListener {
     });
     btnNewButton_2.setBounds(179, 225, 140, 23);
     frame.getContentPane().add(btnNewButton_2);
-    
+//    t.start();
   }
 
   
