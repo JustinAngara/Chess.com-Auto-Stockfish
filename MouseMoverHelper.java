@@ -61,7 +61,7 @@ public class MouseMoverHelper implements NativeKeyListener {
 
     @Override
     public void nativeKeyTyped(NativeKeyEvent arg0) {
-        
+
     }
     public void moveX(int x, int y) {
         PointerInfo a = MouseInfo.getPointerInfo();
