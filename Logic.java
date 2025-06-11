@@ -30,7 +30,7 @@ public class Logic {
     return rotated;
   }
   public static void convertToChessboard(int[][] colors) {
-    System.out.println(colors);
+    System.out.println("this is colors: "+colors);
     for(int col = 0; col<8; col++) {
       for(int row = 0; row<8; row++) {
         int p = colors[col][row];
@@ -47,8 +47,16 @@ public class Logic {
       }
       System.out.println();
     }
+    displayColors(colors);
   }
-  
+  public static void displayColors(int[][] colors) {
+    System.out.println("THIS IS FOR DEBUGGING");
+    for(int i = 0; i<colors.length; i++) { 
+      for(int j = 0; j<colors[0].length; j++) {
+        System.out.println(colors[i][j]);
+      }
+    }
+  }
   public static String[][] getPieces(int[][] colors) {
     // Create a HashMap to map integers to chess pieces
     HashMap<Integer, String> pieceMap = new HashMap<>();

@@ -13,7 +13,7 @@ import java.awt.image.BufferedImage;
  * 
  * */
 public class Screenshot {
-  static int offsetX[] = {0,0,1,2,3,4,5,6};
+  static int[] offsetX = {0, 1, 1, 2, 3, 4, 5, 7};
   static int offsetY[] = offsetX;
     
   /**
@@ -42,7 +42,7 @@ public class Screenshot {
 
 
     public static BufferedImage analyzeChessboard(BufferedImage chessboard) {
-      int boardSize = 807; // The chessboard size in pixels
+      int boardSize = 775; // The chessboard size in pixels
       int numSquares = 8; // Number of squares along one dimension
       int squareSize = boardSize / numSquares; // Size of each square in pixels
       int[][] colors = new int[numSquares][numSquares]; // 2D array for colors
@@ -68,18 +68,17 @@ public class Screenshot {
             }
             
             
-            
             // Loop through the pixels in the vertical range
             for (int i = -1 * mid + 7; i <= mid - 7; i+=2) {
                 // Ensure we are within bounds
                 if (y + i >= 0 && y + i < chessboard.getHeight()) {
                     int count = getCount(chessboard.getRGB(x, y + i));
                     totalCount += count; // Accumulate the count
-//                    chessboard.setRGB(x, y + i, new Color(170, 170, 170).getRGB()); // Debug visualization
+                    chessboard.setRGB(x, y + i, new Color(170, 170, 170).getRGB()); // Debug visualization
                     
                 }
             }
-            chessboard.setRGB(x, y -38, new Color(255,0,0).getRGB()); // Debug visualization
+            chessboard.setRGB(x, y -34, new Color(255,0,0).getRGB()); // Debug visualization
             
             if(getCount(chessboard.getRGB(x, y-5))==0 && getCount(chessboard.getRGB(x, y-38))!=0) {
               // bishop

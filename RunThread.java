@@ -7,12 +7,10 @@ public class RunThread implements Runnable{
   @Override
   public void run() {
     while(isOn) {
-      // TODO Auto-generated method stub
       try {
         System.out.println("running and shit");
         Main.goMove();
       } catch (AWTException e) {
-        // TODO Auto-generated catch block
         e.printStackTrace();
       }
     }

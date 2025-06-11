@@ -18,7 +18,7 @@ public class MouseMoverHelper implements NativeKeyListener {
 
     @Override
     public void nativeKeyPressed(NativeKeyEvent arg0) {
-        // TODO Auto-generated method stub
+        
         if(arg0.getKeyCode()==NativeKeyEvent.VC_UP) {
             
             moveX(0,-1);
@@ -39,7 +39,6 @@ public class MouseMoverHelper implements NativeKeyListener {
           try {
             Main.goMove();
           } catch (AWTException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
           }
         }
@@ -56,13 +55,12 @@ public class MouseMoverHelper implements NativeKeyListener {
 
     @Override
     public void nativeKeyReleased(NativeKeyEvent arg0) {
-        // TODO Auto-generated method stub
+        
         
     }
 
     @Override
     public void nativeKeyTyped(NativeKeyEvent arg0) {
-        // TODO Auto-generated method stub
         
     }
     public void moveX(int x, int y) {

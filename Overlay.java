@@ -16,11 +16,11 @@ public class Overlay {
 
     public Overlay() {
         // Create bounds
-        x = 225;
-        w = 1032 - x;
+        x = 240;
+        w = 1015 - x;
 
-        y = 153;
-        h = 961 - y;
+        y = 187;
+        h = 962 - y;
 
         // Set up the JFrame
         frame = new JFrame();
